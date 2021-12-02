@@ -5,6 +5,7 @@ require "sentry/rails/tracing"
 require "sentry/rails/configuration"
 require "sentry/rails/engine"
 require "sentry/rails/railtie"
+require "sentry/rails/version"
 
 module Sentry
   module Rails
