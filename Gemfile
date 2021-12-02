@@ -2,21 +2,14 @@ source "https://rubygems.org"
 
 # Specify your gem's dependencies in sentry-ruby.gemspec
 gemspec
-gem "sentry-ruby", path: "../sentry-ruby"
-
-rails_version = ENV["RAILS_VERSION"]
-rails_version = "6.1.0" if rails_version.nil?
+gem "sentry-ruby"
 
 gem 'activerecord-jdbcmysql-adapter', platform: :jruby
 gem "jdbc-sqlite3", platform: :jruby
 
-if rails_version.to_f < 6
-  gem "sqlite3", "~> 1.3.0", platform: :ruby
-else
-  gem "sqlite3", platform: :ruby
-end
+gem "sqlite3", "~> 1.3.0", platform: :ruby
 
-gem "rails", "~> #{rails_version}"
+gem "rails", "~> 4.0"
 gem "sprockets-rails"
 
 gem "sidekiq"
