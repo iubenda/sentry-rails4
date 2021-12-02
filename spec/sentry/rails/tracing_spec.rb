@@ -101,7 +101,7 @@ RSpec.describe Sentry::Rails::Tracing, type: :request do
       require "sprockets/railtie"
 
       make_basic_app do |config, app|
-        app.config.public_file_server.enabled = true
+        app.config.serve_static_files = true
         config.traces_sample_rate = 1.0
         config.logger = logger
       end
@@ -116,7 +116,7 @@ RSpec.describe Sentry::Rails::Tracing, type: :request do
     end
   end
 
-  context "with config.public_file_server.enabled = true" do
+  context "with config.serve_static_files = true" do
     let(:string_io) { StringIO.new }
     let(:logger) do
       ::Logger.new(string_io)
@@ -124,7 +124,7 @@ RSpec.describe Sentry::Rails::Tracing, type: :request do
 
     before do
       make_basic_app do |config, app|
-        app.config.public_file_server.enabled = true
+        app.config.serve_static_files = true
         config.traces_sample_rate = 1.0
         config.logger = logger
       end

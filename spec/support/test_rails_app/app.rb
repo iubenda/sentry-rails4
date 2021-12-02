@@ -160,8 +160,8 @@ def make_basic_app
   # there are a few Rails initializers/finializers that register hook to the executor
   # because the callbacks are stored inside the `ActiveSupport::Executor` class instead of an instance
   # the callbacks duplicate after each time we initialize the application and cause issues when they're executed
-  ActiveSupport::Executor.reset_callbacks(:run)
-  ActiveSupport::Executor.reset_callbacks(:complete)
+  # ActiveSupport::Executor.reset_callbacks(:run)
+  # ActiveSupport::Executor.reset_callbacks(:complete)
 
   app = Class.new(TestApp) do
     def self.name

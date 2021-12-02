@@ -1,13 +1,13 @@
 require_relative "lib/sentry/rails/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "sentry-rails"
+  spec.name          = "sentry-rails4"
   spec.version       = Sentry::Rails::VERSION
-  spec.authors = ["Sentry Team"]
-  spec.description = spec.summary = "A gem that provides Rails integration for the Sentry error logger"
-  spec.email = "accounts@sentry.io"
+  spec.authors = ["stefano.gessa@iubenda.com", "Sentry Team"]
+  spec.description = spec.summary = "A gem that provides Rails 4 integration for the Sentry error logger"
+  spec.email = "stefano.gessa@iubenda.com"
   spec.license = 'MIT'
-  spec.homepage = "https://github.com/getsentry/sentry-ruby"
+  spec.homepage = "https://github.com/iubenda/sentry-rails4"
 
   spec.platform = Gem::Platform::RUBY
   spec.required_ruby_version = '>= 2.4'

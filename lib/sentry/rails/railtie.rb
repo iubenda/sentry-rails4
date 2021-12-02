@@ -12,16 +12,6 @@ module Sentry
       app.config.middleware.insert_after ActionDispatch::DebugExceptions, Sentry::Rails::RescuedExceptionInterceptor
     end
 
-    # because the extension works by registering the around_perform callcack, it should always be ran
-    # before the application is eager-loaded (before user's jobs register their own callbacks)
-    # See https://github.com/getsentry/sentry-ruby/issues/1249#issuecomment-853871871 for the detail explanation
-    initializer "sentry.extend_active_job", before: :eager_load! do |app|
-      ActiveSupport.on_load(:active_job) do
-        require "sentry/rails/active_job"
-        prepend Sentry::Rails::ActiveJobExtensions
-      end
-    end
-
     config.after_initialize do |app|
       next unless Sentry.initialized?
 
